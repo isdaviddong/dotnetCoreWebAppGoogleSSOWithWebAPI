@@ -1,0 +1,30 @@
+﻿@page
+@model __NameSpace__.Pages.LoginModel
+@{
+}
+
+@section Scripts {
+    <script>
+        function Login() {
+            var url = "https://accounts.google.com/o/oauth2/v2/auth?";
+            url += "scope=email profile&";
+            url += "redirect_uri=https://localhost:5001/SSOcallback&";
+            url += "response_type=code&";
+            url += "client_id=709970692634-racas8jbr9ta34put8lg51pps952ol2n.apps.googleusercontent.com&";
+            url += "state=12345&";
+            url += "prompt=select_account&";
+            window.location.href = url;
+        }
+        $(function () {
+            $('#Login').click(function (e) {
+                Login();
+            });
+        });
+    </script>
+}
+
+<h3>使用Google登入</h3>
+<p>
+    請點選下方按鈕使用Google帳號登入...
+</p>
+<button id='Login' class="btn btn-success">Google 登入</button>
